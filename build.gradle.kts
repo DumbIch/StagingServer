@@ -24,10 +24,12 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
     // Kotlin
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation ("commons-io:commons-io:2.5")
 
     // Test
     testImplementation(kotlin("test"))
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 }
 
 tasks.test {
