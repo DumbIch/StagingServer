@@ -1,5 +1,7 @@
 package com.dumdumbich.stsrv.server
 
+import com.dumdumbich.stsrv.server.module.monitorModule
+import com.dumdumbich.stsrv.server.plugins.ApplicationMonitoringPlugin
 import com.dumdumbich.stsrv.server.route.registerHomePageRoute
 import com.dumdumbich.stsrv.server.route.registerStartTrackingRoute
 import com.dumdumbich.stsrv.server.route.registerStopTrackingRoute
@@ -19,6 +21,8 @@ fun main(args: Array<String>) {
 @Suppress("unused") // application.conf references the main function. This annotation prevents the IDE from marking it as unused.
 fun Application.module() {
     install(Resources)
+    install(ApplicationMonitoringPlugin)
+    monitorModule()
     registerHomePageRoute()
     registerStartTrackingRoute()
     registerStopTrackingRoute()
