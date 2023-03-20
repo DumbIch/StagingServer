@@ -1,24 +1,30 @@
 package com.dumdumbich.stsrv.server.route
 
+import io.ktor.resources.*
 import io.ktor.server.application.*
+import io.ktor.server.resources.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.Serializable
 
 /**
  * @author  DumDumbIch (dumdumbich@mail.ru)
  * @version 1.0
  * @date  15.03.2023 14:33
  */
- 
+
+@Resource("/tracking/start")
+@Serializable
+class StartTrackingRoute
+
 fun Route.startTrackingRoute() {
-    route("/tracking/start") {
-        get {
-            call.respondText("Tracking changes in the target directory: start")
-        }
+    get<StartTrackingRoute> {
+        call.respondText("Tracking changes in the target directory: start")
+        //StartTrackingUseCase()
     }
 }
 
-fun Application.registerStartTrackingRoute(){
+fun Application.registerStartTrackingRoute() {
     routing {
         startTrackingRoute()
     }

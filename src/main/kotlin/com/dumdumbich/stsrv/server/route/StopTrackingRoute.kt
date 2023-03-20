@@ -1,8 +1,11 @@
 package com.dumdumbich.stsrv.server.route
 
+import io.ktor.resources.*
 import io.ktor.server.application.*
+import io.ktor.server.resources.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.Serializable
 
 /**
  * @author  DumDumbIch (dumdumbich@mail.ru)
@@ -10,15 +13,17 @@ import io.ktor.server.routing.*
  * @date  15.03.2023 14:41
  */
 
+@Resource("/tracking/stop")
+@Serializable
+class StopTrackingRoute
+
 fun Route.stopTrackingRoute() {
-    route("/tracking/stop") {
-        get {
-            call.respondText("Tracking changes in the target directory: stop")
-        }
+    get<StopTrackingRoute> {
+        call.respondText("Tracking changes in the target directory: stop")
     }
 }
 
-fun Application.registerStopTrackingRoute(){
+fun Application.registerStopTrackingRoute() {
     routing {
         stopTrackingRoute()
     }

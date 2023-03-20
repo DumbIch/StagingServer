@@ -6,5 +6,10 @@ package com.dumdumbich.stsrv.domain
  * @date  15.03.2023 14:21
  */
 
-class StartTrackingUseCase {
+class StartTrackingUseCase(
+    private val fileOsEventsDataSource: FileOsEventsDataSource
+) {
+    operator fun invoke() {
+        fileOsEventsDataSource.startTracking()
+    }
 }
