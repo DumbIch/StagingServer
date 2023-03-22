@@ -1,4 +1,4 @@
-package com.dumdumbich.stsrv.server.route
+package com.dumdumbich.stsrv.server.ui.tracking.stop
 
 import io.ktor.resources.*
 import io.ktor.server.application.*
