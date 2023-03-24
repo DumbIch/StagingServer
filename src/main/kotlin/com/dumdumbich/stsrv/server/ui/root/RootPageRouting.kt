@@ -1,9 +1,8 @@
-package com.dumdumbich.stsrv.server.ui.home
+package com.dumdumbich.stsrv.server.ui.root
 
 import io.ktor.resources.*
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
-import io.ktor.server.html.*
 import io.ktor.server.http.content.*
 import io.ktor.server.resources.*
 import io.ktor.server.response.*
@@ -13,22 +12,24 @@ import kotlinx.serialization.Serializable
 /**
  * @author  DumDumbIch (dumdumbich@mail.ru)
  * @version 1.0
- * @date  15.03.2023 14:44
+ * @date  24.03.2023 08:28
  */
 
-@Resource("/home")
+@Resource("/")
 @Serializable
-class HomePageRoute
+class RootPageRoute
 
-fun Route.homePageRoute() {
-    get<HomePageRoute> {
-        val model = HomePageModel("Home page")
-        call.respond(FreeMarkerContent("home_template.ftl", mapOf("model" to model)))
+fun Route.rootPageRoute() {
+    get<RootPageRoute> {
+        call.respondRedirect("/home", permanent = true)
     }
 }
 
-fun Application.registerHomePageRoute() {
+fun Application.registerRootPageRoute() {
     routing {
-        homePageRoute()
+        static("/static") {
+            resources("files")
+        }
+        rootPageRoute()
     }
 }

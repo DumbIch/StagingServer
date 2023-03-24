@@ -23,6 +23,7 @@ dependencies {
     implementation("io.ktor:ktor-server-resources:$ktorVersion")
     implementation("io.ktor:ktor-server-html-builder:$ktorVersion")
     implementation("io.ktor:ktor-server-default-headers:$ktorVersion")
+    implementation("io.ktor:ktor-server-freemarker:$ktorVersion")
     implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktorVersion")
 
@@ -32,8 +33,6 @@ dependencies {
     // Kotlin
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("commons-io:commons-io:2.11.0")
-
-    // Test
     testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
 }

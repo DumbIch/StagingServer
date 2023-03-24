@@ -2,6 +2,8 @@ package com.dumdumbich.stsrv.server.ui.tracking.stop
 
 import io.ktor.resources.*
 import io.ktor.server.application.*
+import io.ktor.server.freemarker.*
+import io.ktor.server.http.content.*
 import io.ktor.server.resources.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -15,16 +17,17 @@ import kotlinx.serialization.Serializable
 
 @Resource("/tracking/stop")
 @Serializable
-class StopTrackingRoute
+class StopTrackingPageRoute
 
-fun Route.stopTrackingRoute() {
-    get<StopTrackingRoute> {
-        call.respondText("Tracking changes in the target directory: stop")
+fun Route.stopTrackingPageRoute() {
+    get<StopTrackingPageRoute> {
+        val model = StopTrackingPageModel("Stop tracking")
+        call.respond(FreeMarkerContent("stop_tracking_template.ftl", mapOf("model" to model)))
     }
 }
 
-fun Application.registerStopTrackingRoute() {
+fun Application.registerStopTrackingPageRoute() {
     routing {
-        stopTrackingRoute()
+        stopTrackingPageRoute()
     }
 }

@@ -6,7 +6,7 @@ package com.dumdumbich.stsrv.server.ui.tracking.directory
  * @date  22.03.2023 10:05
  */
 
-enum class TrackingDirectoryPageString(val content:String) {
+enum class TrackingDirectoryPageString(val content: String) {
     TITLE("Tracking of target directory"),
     TEXT("Show content :")
 }
