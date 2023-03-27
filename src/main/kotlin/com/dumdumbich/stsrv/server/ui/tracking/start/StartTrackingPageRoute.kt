@@ -21,7 +21,7 @@ class StartTrackingPageRoute
 
 fun Route.startTrackingPageRoute() {
     get<StartTrackingPageRoute> {
-        val model = StartTrackingPageModel("Start tracking")
+        val model = StartTrackingPageModel()
         call.respond(FreeMarkerContent("start_tracking_template.ftl", mapOf("model" to model)))
 
     }

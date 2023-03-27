@@ -22,7 +22,7 @@ class HomePageRoute
 
 fun Route.homePageRoute() {
     get<HomePageRoute> {
-        val model = HomePageModel("Home page")
+        val model = HomePageModel()
         call.respond(FreeMarkerContent("home_template.ftl", mapOf("model" to model)))
     }
 }

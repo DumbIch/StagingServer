@@ -3,11 +3,11 @@ package com.dumdumbich.stsrv.server
 import com.dumdumbich.stsrv.server.module.monitorModule
 import com.dumdumbich.stsrv.server.plugins.ApplicationMonitoringPlugin
 import com.dumdumbich.stsrv.server.ui.base.configureTemplating
-import com.dumdumbich.stsrv.server.ui.tracking.start.registerStartTrackingPageRoute
-import com.dumdumbich.stsrv.server.ui.tracking.stop.registerStopTrackingPageRoute
 import com.dumdumbich.stsrv.server.ui.home.registerHomePageRoute
 import com.dumdumbich.stsrv.server.ui.root.registerRootPageRoute
 import com.dumdumbich.stsrv.server.ui.tracking.directory.registerTrackingDirectoryPageRoute
+import com.dumdumbich.stsrv.server.ui.tracking.start.registerStartTrackingPageRoute
+import com.dumdumbich.stsrv.server.ui.tracking.stop.registerStopTrackingPageRoute
 import io.ktor.server.application.*
 import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.defaultheaders.*

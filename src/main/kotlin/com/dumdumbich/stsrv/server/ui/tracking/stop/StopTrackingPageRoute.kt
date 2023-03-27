@@ -21,7 +21,7 @@ class StopTrackingPageRoute
 
 fun Route.stopTrackingPageRoute() {
     get<StopTrackingPageRoute> {
-        val model = StopTrackingPageModel("Stop tracking")
+        val model = StopTrackingPageModel()
         call.respond(FreeMarkerContent("stop_tracking_template.ftl", mapOf("model" to model)))
     }
 }
