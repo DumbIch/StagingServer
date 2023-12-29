@@ -5,8 +5,8 @@ import com.dumdumbich.stsrv.domain.FileOsDataSource
 
 
 /**
- * Класс <code>FileOsDataSource</code> предоставляет возможность работы с файловой операционной системой в соответствии
- * с контрактом <code>FileOsUsecase</code> Взаимодействует с операционной системой через адаптер <code>FileOs</code>,
+ * Класс <code>FileOsDataSourceImpl</code> предоставляет возможность работы с файловой операционной системой в соответствии
+ * с контрактом <code>FileOsDataSource</code> Взаимодействует с операционной системой через адаптер <code>FileOs</code>,
  * реализующий контракт <code>FileOsAdapter</code>
  *
  * @author DumDumbIch (dumdumbich@mail.ru)

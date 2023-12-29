@@ -4,13 +4,13 @@ val logbackVersion: String by project
 
 plugins {
     application
-    kotlin("jvm") version "1.6.0"
-    kotlin("plugin.serialization") version "1.6.0"
-    id("io.ktor.plugin") version "2.2.4"
+    kotlin("jvm") version "1.9.10"
+    kotlin("plugin.serialization") version "1.9.10"
+    id("io.ktor.plugin") version "2.3.4"
 }
 
 group = "com.dumdumbich"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -31,9 +31,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
     // Kotlin
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation("commons-io:commons-io:2.11.0")
-    testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
 }
 
@@ -47,6 +46,16 @@ application {
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "com.dumdumbich.stsrv.server.ApplicationKt"
+    }
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 ktor {

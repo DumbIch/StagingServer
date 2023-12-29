@@ -3,8 +3,9 @@ package com.dumdumbich.stsrv.domain
 /**
  * @author  DumDumbIch (dumdumbich@mail.ru)
  * @version 1.0
- * @date  15.03.2023 14:22
+ * @date  16.03.2023 11:55
  */
 
-class StopTrackingUseCase {
+interface DateTimeDataSource {
+    fun timestamp():String
 }
